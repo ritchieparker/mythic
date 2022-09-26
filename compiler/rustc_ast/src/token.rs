@@ -605,9 +605,9 @@ impl Token {
         false
     }
 
-    /// Returns `true` if the token is either the `mut` or `const` keyword.
+    /// Returns `true` if the token is either the `mut` or `const` or uni keyword.
     pub fn is_mutability(&self) -> bool {
-        self.is_keyword(kw::Mut) || self.is_keyword(kw::Const)
+        self.is_keyword(kw::Mut) || self.is_keyword(kw::Const) || self.is_keyword(kw::Uni)
     }
 
     pub fn is_qpath_start(&self) -> bool {

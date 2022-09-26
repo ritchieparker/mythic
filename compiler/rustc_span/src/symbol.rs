@@ -63,6 +63,7 @@ symbols! {
         Trait:              "trait",
         True:               "true",
         Type:               "type",
+        Uni:                "uni",
         Unsafe:             "unsafe",
         Use:                "use",
         Where:              "where",

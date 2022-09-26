@@ -928,12 +928,12 @@ impl<'a> Parser<'a> {
             // `raw [ const | mut ]`.
             let found_raw = self.eat_keyword(kw::Raw);
             assert!(found_raw);
-            let mutability = self.parse_const_or_mut().unwrap();
+            let mutability = self.parse_const_or_uni().unwrap();
             self.sess.gated_spans.gate(sym::raw_ref_op, lo.to(self.prev_token.span));
             (ast::BorrowKind::Raw, mutability)
         } else {
             // `mut?`
-            (ast::BorrowKind::Ref, self.parse_mutability())
+            (ast::BorrowKind::Ref, self.parse_unique())
         }
     }
 

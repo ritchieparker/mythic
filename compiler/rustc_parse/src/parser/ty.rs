@@ -258,6 +258,8 @@ impl<'a> Parser<'a> {
             self.parse_ty_ptr()?
         } else if self.eat(&token::OpenDelim(Delimiter::Bracket)) {
             self.parse_array_or_slice_ty()?
+        } else if self.eat(&token::Pound) {
+            self.parse_borrowed_pointee()?
         } else if self.check(&token::BinOp(token::And)) || self.check(&token::AndAnd) {
             // Reference
             self.expect_and()?;
@@ -445,7 +447,7 @@ impl<'a> Parser<'a> {
         let and_span = self.prev_token.span;
         let mut opt_lifetime =
             if self.check_lifetime() { Some(self.expect_lifetime()) } else { None };
-        let mut mutbl = self.parse_mutability();
+        let mut mutbl = self.parse_unique();
         if self.token.is_lifetime() && mutbl == Mutability::Mut && opt_lifetime.is_none() {
             // A lifetime is invalid here: it would be part of a bare trait bound, which requires
             // it to be followed by a plus, but we disallow plus in the pointee type.

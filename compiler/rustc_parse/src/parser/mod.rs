@@ -1130,6 +1130,24 @@ impl<'a> Parser<'a> {
         if self.eat_keyword(kw::Mut) { Mutability::Mut } else { Mutability::Not }
     }
 
+    fn parse_unique(&mut self) -> Mutability {
+        if self.eat_keyword(kw::Mut) { Mutability::Mut } 
+        else if self.eat_keyword(kw::Uni) { Mutability::Mut }
+        else { Mutability::Not }
+    }
+
+    fn parse_const_or_uni(&mut self) -> Option<Mutability> {
+        if self.eat_keyword(kw::Mut) {
+            Some(Mutability::Mut)
+        } else if self.eat_keyword(kw::Uni) {
+            Some(Mutability::Mut)
+        } else if self.eat_keyword(kw::Const) {
+            Some(Mutability::Not)
+        } else {
+            None
+        }
+    }
+
     /// Possibly parses mutability (`const` or `mut`).
     fn parse_const_or_mut(&mut self) -> Option<Mutability> {
         if self.eat_keyword(kw::Mut) {

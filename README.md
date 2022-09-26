@@ -1,27 +1,13 @@
-# The Rust Programming Language
+# Mythic: currently a set of continually growing changes to the rust programming language.
 
-This is the main source code repository for [Rust]. It contains the compiler,
+This is the main source code repository for Mythic. It contains the compiler,
 standard library, and documentation.
 
-[Rust]: https://www.rust-lang.org
+If you want to learn more about rust head to: https://www.rust-lang.org
 
-**Note: this README is for _users_ rather than _contributors_.
-If you wish to _contribute_ to the compiler, you should read the
-[Getting Started][gettingstarted] section of the rustc-dev-guide instead.
-You can ask for help in the [#new members Zulip stream][new-members].**
+## Installing from Source, 
 
-[new-members]: https://rust-lang.zulipchat.com/#narrow/stream/122652-new-members
-
-## Quick Start
-
-Read ["Installation"] from [The Book].
-
-["Installation"]: https://doc.rust-lang.org/book/ch01-01-installation.html
-[The Book]: https://doc.rust-lang.org/book/index.html
-
-## Installing from Source
-
-The Rust build system uses a Python script called `x.py` to build the compiler,
+The Mythic build system uses a Python script called `x.py` to build the compiler,
 which manages the bootstrapping process. It lives at the root of the project.
 
 The `x.py` command can be run directly on most systems in the following format:
@@ -43,10 +29,7 @@ python2.7 x.py <subcommand> [flags]
 ```
 
 More information about `x.py` can be found
-by running it with the `--help` flag or reading the [rustc dev guide][rustcguidebuild].
-
-[gettingstarted]: https://rustc-dev-guide.rust-lang.org/getting-started.html
-[rustcguidebuild]: https://rustc-dev-guide.rust-lang.org/building/how-to-build-and-run.html
+by running it with the `--help` flag 
 
 ### Building on a Unix-like system
 1. Make sure you have installed the dependencies:
@@ -64,15 +47,15 @@ by running it with the `--help` flag or reading the [rustc dev guide][rustcguide
 2. Clone the [source] with `git`:
 
    ```sh
-   git clone https://github.com/rust-lang/rust.git
+   git clone https://github.com/ritchieparker/mythic.git
    cd rust
    ```
 
-[source]: https://github.com/rust-lang/rust
+[source]: https://github.com/ritchieparker/mythic
 
 3. Configure the build settings:
 
-    The Rust build system uses a file named `config.toml` in the root of the
+    The Mythic build system uses a file named `config.toml` in the root of the
     source tree to determine various configuration settings for the build.
     Copy the default `config.toml.example` to `config.toml` to get started.
 
@@ -143,7 +126,7 @@ the GNU build to interop with GNU software built using the MinGW/MSYS2 toolchain
                mingw-w64-x86_64-ninja
    ```
 
-4. Navigate to Rust's source code (or clone it), then build it:
+4. Navigate to Mythic's source code (or clone it), then build it:
 
    ```sh
    ./x.py build && ./x.py install
@@ -222,7 +205,7 @@ the ABI used. I.e., if the ABI was `x86_64-pc-windows-msvc`, the directory will 
 
 ## Notes
 
-Since the Rust compiler is written in Rust, it must be built by a
+Since the Mythic compiler is written in Rust, it must be built by a
 precompiled "snapshot" version of itself (made in an earlier stage of
 development). As such, source builds require an Internet connection to
 fetch snapshots, and an OS that can execute the available snapshot binaries.
@@ -244,28 +227,9 @@ Please read [our blog post][macx32] for more info.
 You may find that other platforms work, but these are our officially
 supported build environments that are most likely to work.
 
-## Getting Help
-
-The Rust community congregates in a few places:
-
-* [Stack Overflow] - Direct questions about using the language.
-* [users.rust-lang.org] - General discussion and broader questions.
-* [/r/rust] - News and general discussion.
-
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/rust
-[/r/rust]: https://reddit.com/r/rust
-[users.rust-lang.org]: https://users.rust-lang.org/
-
-## Contributing
-
-If you are interested in contributing to the Rust project, please take a look
-at the [Getting Started][gettingstarted] guide in the [rustc-dev-guide].
-
-[rustc-dev-guide]: https://rustc-dev-guide.rust-lang.org
-
 ## License
 
-Rust is primarily distributed under the terms of both the MIT license
+Mythic is primarily distributed under the terms of both the MIT license
 and the Apache License (Version 2.0), with portions covered by various
 BSD-like licenses.
 
