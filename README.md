@@ -48,7 +48,7 @@ by running it with the `--help` flag
 
    ```sh
    git clone https://github.com/ritchieparker/mythic.git
-   cd rust
+   cd mythic
    ```
 
 [source]: https://github.com/ritchieparker/mythic
