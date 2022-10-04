@@ -397,12 +397,12 @@ impl<'a> Parser<'a> {
 
     /// Parses a raw pointer type: `*[const | mut] $type`.
     fn parse_ty_ptr(&mut self) -> PResult<'a, TyKind> {
-        let mutbl = self.parse_const_or_mut().unwrap_or_else(|| {
+        let mutbl = self.parse_const_or_uni().unwrap_or_else(|| {
             let span = self.prev_token.span;
-            let msg = "expected mut or const in raw pointer type";
+            let msg = "expected mut or const or uni in raw pointer type";
             self.struct_span_err(span, msg)
                 .span_label(span, msg)
-                .help("use `*mut T` or `*const T` as appropriate")
+                .help("use `*mut T` or `*uni T` or `*const T` as appropriate")
                 .emit();
             Mutability::Not
         });

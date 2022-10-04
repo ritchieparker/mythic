@@ -1149,15 +1149,15 @@ impl<'a> Parser<'a> {
     }
 
     /// Possibly parses mutability (`const` or `mut`).
-    fn parse_const_or_mut(&mut self) -> Option<Mutability> {
-        if self.eat_keyword(kw::Mut) {
-            Some(Mutability::Mut)
-        } else if self.eat_keyword(kw::Const) {
-            Some(Mutability::Not)
-        } else {
-            None
-        }
-    }
+    ///fn parse_const_or_mut(&mut self) -> Option<Mutability> {
+    ///    if self.eat_keyword(kw::Mut) {
+    ///        Some(Mutability::Mut)
+    ///    } else if self.eat_keyword(kw::Const) {
+    ///        Some(Mutability::Not)
+    ///    } else {
+    ///        None
+    ///    }
+    /// }
 
     fn parse_field_name(&mut self) -> PResult<'a, Ident> {
         if let token::Literal(token::Lit { kind: token::Integer, symbol, suffix }) = self.token.kind
